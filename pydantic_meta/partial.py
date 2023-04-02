@@ -3,13 +3,8 @@ from typing import Optional
 from pydantic.main import ModelMetaclass
 
 
-class AllOptional(ModelMetaclass):
-    """
-          Example
-              class Test(BaseModel, metaclass=AllOptional):
-                  name: str
-                  age: int
-    """
+class Partial(ModelMetaclass):
+    """Metaclass for pydantic models basic on typescript utility `Partial<...>`"""
 
     def __new__(cls, name, bases, namespaces, **kwargs):
         annotations = namespaces.get('__annotations__', {})  # get annotations
