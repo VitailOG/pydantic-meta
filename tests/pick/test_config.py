@@ -15,6 +15,18 @@ def test_basic():
     assert Test(name='Test')
 
 
+def test_empty_fields():
+    class Test(BaseModel, metaclass=Pick):
+        name: str
+        age: int
+
+        class Config:
+            pick_fields = []
+
+    with pytest.raises(ValidationError):
+        assert Test()
+
+
 def test_without_pick_fields():
     class Test(BaseModel, metaclass=Pick):
         name: str

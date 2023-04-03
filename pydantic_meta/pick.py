@@ -16,7 +16,7 @@ class Pick(ModelMetaclass):
         if config:
             validate_intersection_between_config_and_attr_class(config, kwargs)
 
-        pick_fields = kwargs.pop("pick_fields", None) or getattr(config, 'pick_fields', None)
+        pick_fields = kwargs.pop("pick_fields", []) or getattr(config, 'pick_fields', [])
 
         # From attributes class
         dn = kwargs.pop("default_none", None)
@@ -30,7 +30,7 @@ class Pick(ModelMetaclass):
         instance = super().__new__(cls, name, bases, namespaces, **kwargs)
 
         # if no pick_fields is set for the model
-        if pick_fields is None:
+        if len(pick_fields) == 0:
             return instance
 
         # Set pick fields to instance
