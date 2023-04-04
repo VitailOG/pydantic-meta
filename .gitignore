@@ -1,5 +1,6 @@
+__pycache__/
+*.py[cod]
 .pytest-cache/
-.__pycache__/
 dist/
 .idea/
 .DS_Store
