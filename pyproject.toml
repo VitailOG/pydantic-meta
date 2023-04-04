@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pydantic-meta"
-version = "0.3.2"
+version = "0.3.3"
 description = ""
 authors = ["VitailOG <vzaharkiv28@gmail.com>"]
 readme = "README.md"
@@ -9,8 +9,10 @@ packages = [{include = "pydantic_meta"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pydantic = "^1.10.4"
-pytest = "^7.2.2"
 
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.2"
 
 [build-system]
 requires = ["poetry-core"]
