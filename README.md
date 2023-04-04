@@ -103,8 +103,8 @@ from pydantic_meta.pick import Pick
 
 class User(BaseModel, metaclass=Pick):
     name: str
-    first_name: str | None = None
-    age: int | None = None
+    first_name: str 
+    age: int
     
     class Config:
         pick_fields = ['name']
