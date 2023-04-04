@@ -118,8 +118,8 @@ from pydantic_meta.pick import Pick
 
 class User(BaseModel, metaclass=Pick, pick_fields=['name']):
     name: str
-    first_name: str | None = None
-    age: int | None = None
+    first_name: str
+    age: int
     
 User(name="John")
 ```
@@ -131,8 +131,8 @@ from pydantic_meta.pick import Pick
 
 class User(BaseModel, metaclass=Pick, pick_fields=['name'], default=False):
     name: str
-    first_name: str | None = None
-    age: int | None = None
+    first_name: str
+    age: int
     
 User(name="John", first_name=None, age=None)
 ```
