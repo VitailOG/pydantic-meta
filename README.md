@@ -2,7 +2,7 @@
 ___
 
 ## About
-Allow define models where many familiar fields
+Allow to define models where many similar fields
 
 ## Installation
 
