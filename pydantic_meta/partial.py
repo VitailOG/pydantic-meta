@@ -4,16 +4,15 @@ from pydantic.main import ModelMetaclass
 
 
 class Partial(ModelMetaclass):
-    """Metaclass for pydantic models basic on typescript utility `Partial<...>`"""
+    """Metaclass for pydantic models based on typescript utility `Partial<...>`"""
 
     def __new__(cls, name, bases, namespaces, **kwargs):
-        annotations = namespaces.get('__annotations__', {})  # get annotations
+        instance = super().__new__(cls, name, bases, namespaces, **kwargs)
 
-        for base in bases:
-            annotations.update(base.__annotations__)  # add annotations parents
+        for field in instance.__fields__:
+            model_field = instance.__fields__[field]
 
-        for field in annotations:
-            annotations[field] = Optional[annotations[field]]  # set optional
+            setattr(model_field, 'allow_none', True)
+            setattr(model_field, 'required', False)
 
-        namespaces['__annotations__'] = annotations
-        return super().__new__(cls, name, bases, namespaces, **kwargs)
+        return instance

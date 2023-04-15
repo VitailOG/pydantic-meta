@@ -5,6 +5,7 @@ from pydantic_meta._validators import validate_intersection_between_config_and_a
 
 
 class Required(ModelMetaclass):
+    """Metaclass for pydantic models based on typescript utility `Required<...>`"""
 
     def __new__(cls, name, bases, namespaces, **kwargs):
         config = namespaces.get('Config', False)

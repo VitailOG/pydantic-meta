@@ -8,7 +8,7 @@ from pydantic_meta._validators import validate_intersection_between_config_and_a
 
 
 class Pick(ModelMetaclass):
-    """Metaclass for pydantic models basic on typescript utility `Pick<...>`"""
+    """Metaclass for pydantic models based on typescript utility `Pick<...>`"""
 
     def __new__(cls, name, bases, namespaces, **kwargs):
         config = namespaces.get('Config', False)

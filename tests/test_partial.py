@@ -8,5 +8,5 @@ def test_base():
         name: str
         age: int
 
-    assert Test()
+    assert Test(name=None, age=None)
 
