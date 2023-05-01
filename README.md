@@ -129,7 +129,7 @@ by default, the fields are set to None, and you can change this by specifying th
 from pydantic import BaseModel
 from pydantic_meta.pick import Pick
 
-class User(BaseModel, metaclass=Pick, pick_fields=['name'], default=False):
+class User(BaseModel, metaclass=Pick, pick_fields=['name'], default_none=False):
     name: str
     first_name: str
     age: int
