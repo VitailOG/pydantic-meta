@@ -9,6 +9,7 @@ packages = [{include = "pydantic_meta"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pydantic = "^1.10.4"
+pytest-benchmark = "^4.0.0"
 
 
 [tool.poetry.dev-dependencies]

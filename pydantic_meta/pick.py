@@ -30,8 +30,7 @@ class Pick(ModelMetaclass):
         instance = super().__new__(cls, name, bases, namespaces, **kwargs)
 
         # if no pick_fields is set for the model
-        if len(pick_fields) == 0:
-            return instance
+        if len(pick_fields) == 0: return instance
 
         # Set pick fields to instance
         setattr(instance, "__pick_fields__", pick_fields)
